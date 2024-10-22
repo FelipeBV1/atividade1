@@ -70,7 +70,7 @@ function responderRequisicao(requisicao, resposta) {
     } else {
       resposta.write('<div class="container">');
       resposta.write("<h1>Por favor, digite na URL:</h1>");
-      resposta.write("<p>localhost:3000/?tabuada=um_numero&sequencia=um_numero</p>");
+      resposta.write("<p>https://atividade1-phi.vercel.app/?tabuada=um_numero&sequencia=um_numero</p>");
       resposta.write('</div>');
     }
 
