@@ -57,7 +57,7 @@
     function criarTabuada(tabuada, sequencia) {
       const container = document.getElementById('tabuadaContainer');
       if (isNaN(tabuada)) {
-        container.innerHTML = '<h1>Digite na URL:</h1><p>localhost:3000/?tabuada=um_numero&sequencia=um_numero</p>';
+        container.innerHTML = '<h1>Digite na URL:</h1><p>https://atividade1-phi.vercel.app/?tabuada=um_numero&sequencia=um_numero</p>';
       } else {
         let conteudo = `<h1>Tabuada do ${tabuada} até ${sequencia}</h1>`;
         for (let i = 0; i <= sequencia; i++) {
