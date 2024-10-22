@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Tabuada</title>
+  <style>
+    body {
+      background-color: #f4f4f4;
+      color: #333;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+    .container {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      width: 350px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #555;
+    }
+    p {
+      font-size: 18px;
+      margin: 10px 0;
+      color: #666;
+    }
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="tabuadaContainer">
+  </div>
+
+  <script>
+    function obterParametrosUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const numeroTabuada = params.get('tabuada');
+      const limiteSequencia = params.get('sequencia') || 10;
+      return { tabuada: parseInt(numeroTabuada), sequencia: parseInt(limiteSequencia) };
+    }
+
+    function criarTabuada(tabuada, sequencia) {
+      const container = document.getElementById('tabuadaContainer');
+      if (isNaN(tabuada)) {
+        container.innerHTML = '<h1>Digite na URL:</h1><p>localhost:3000/?tabuada=um_numero&sequencia=um_numero</p>';
+      } else {
+        let conteudo = `<h1>Tabuada do ${tabuada} até ${sequencia}</h1>`;
+        for (let i = 0; i <= sequencia; i++) {
+          conteudo += `<p>${tabuada} x ${i} = ${tabuada * i}</p>`;
+        }
+        container.innerHTML = conteudo;
+      }
+    }
+
+    const { tabuada, sequencia } = obterParametrosUrl();
+    criarTabuada(tabuada, sequencia);
+  </script>
+
+</body>
+</html>
